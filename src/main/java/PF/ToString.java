@@ -1,6 +1,7 @@
 package PF;
 @FunctionalInterface
-public interface ToString {
+public interface ToString<T> {
+    String toString(T str);
 
 
 }
