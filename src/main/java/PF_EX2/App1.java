@@ -1,5 +1,6 @@
 package PF_EX2;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.function.Predicate;
 
@@ -33,12 +34,21 @@ public class App1 {
 
     }
 
-
+    //version lamda Function<List<P<T>, P<T>> f = ...
     public static <T> List<T> filtragepredicatif(List<Predicate<T>> listPred , List<T> listelements){
 
-        List<T> listRes ;
-        for(T element : listelements){
+        //construction du predicat de la conjonction
+        Predicate<T> globale = null;
+        for(Predicate<T> element : listPred)
+            globale.and(element);
 
+        //pour chaque element T verfier la conjonction des predicats
+        List<T> listRes= new ArrayList<>();
+        for(T element : listelements){
+            if(globale.test(element))
+                listRes.add(element);
         }
+
+        return listRes;
     }
 }
