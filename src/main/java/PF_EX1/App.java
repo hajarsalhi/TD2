@@ -1,6 +1,4 @@
-package PF;
-
-import PF.Somme;
+package PF_EX1;
 
 import java.util.List;
 import java.util.Map;
